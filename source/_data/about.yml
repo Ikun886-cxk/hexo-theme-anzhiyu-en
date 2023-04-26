@@ -1,0 +1,89 @@
+- class_name: About page
+  subtitle: Life is bright and all things are lovely✨
+  avatarImg: https://i.postimg.cc/Pr0ryGtV/g.jpg
+  name: Long Yujie
+  description:  is a student, independent developer, blogger
+  aboutsiteTips:
+    tips: Pursuit
+    title1: Originated from
+    title2: Go with passion Feel
+    word:
+      - Study
+      - Life
+      - Procedures
+      - Experience
+  helloAbout: Hello there!
+  skillsTips:
+    tips: Skills
+    title: Unlock creativity
+  careers:
+    tips: Career
+    title: Infinite Progress
+    item:
+      - EDU, Software Professional
+    img: https://img02.anzhiy.cn/adminuploads/1/2022/09/26/6330e9bcc39cc.png
+  statistic:
+    link: /archives
+    text: Article Tunnels
+    cover: https://img02.anzhiy.cn/adminuploads/1/2022/09/23/632d634f8376d.jpg
+  map:
+    title: I now live in
+    StrengthenTitle: 中国，邯郸市
+    background: https://img02.anzhiy.cn/adminuploads/1/2022/09/24/632e6f48981d8.jpg
+    backgroundDark: https://i.postimg.cc/DyYkChnk/image.png
+  selfInfo:
+    selfInfoTips1: Born in
+    selfInfoContentYear: 2004
+    selfInfoTips2: HanDan Vocational College of Science and Technology
+    selfInfoContent2: Software Technology
+    selfInfoTips3: Careers Now
+    selfInfoContent3: College freshmen👨‍🎓
+  personalities:
+    author_name: 调停者
+    personality_type: INFP-A
+    photo_url: https://img02.anzhiy.cn/adminuploads/1/2022/09/24/632e9643611ec.jpg
+    personality_img: https://cdn.jsdelivr.net/gh/SurpriseLon/my-website@master/Untitled-1.svg
+    name_url: https://www.16personalities.com/ch/infp-%E4%BA%BA%E6%A0%BC
+  maxim:
+    maxim_tips: Motto
+    maxim_top: Living a brighter life.
+    maxim_bottom: All things are lovely.
+  buff:
+    buff_tips: Speciality
+    buff_top: The novelty of pickled fish
+    buff_bottom: Binary index MAX
+  game:
+    game_tips: Hobby Games
+    game_title: Shadow fight 3
+    game_uid: "UID: 125766904"
+    game_bg: https://i.postimg.cc/PrLybnqR/1500x500.jpg
+  comic:
+    comic_tips: Fans of drama
+    comic_title: Watch the show
+    comic_list:
+      - name: Scissor Seven 4
+        href: https://www.bilibili.com/bangumi/media/md28412536
+        cover: https://i.postimg.cc/T3W2Gcxh/out.webp
+      - name: White Cat Legend
+        href: https://www.bilibili.com/bangumi/media/md28227527
+        cover: https://i.postimg.cc/Kz944vHY/out.webp
+      - name: All Saints Street
+        href: https://www.bilibili.com/bangumi/media/md28235589
+        cover: https://i.postimg.cc/W3CzFnVD/out.webp
+      - name: Non Human Episode
+        href: https://www.bilibili.com/bangumi/media/md13372924
+        cover: https://i.postimg.cc/Bb0P1Q59/out.webp
+      - name: Case Closed
+        href: https://www.bilibili.com/bangumi/media/md28228775
+        cover: https://i.postimg.cc/gkM54wxD/out.webp
+  like:
+    like_tips: Focus on Preferences
+    like_title: Digital Technology
+    like_bg: https://img02.anzhiy.cn/adminuploads/1/2022/09/24/632f0dd8f33c6.webp
+    like_bottom: Cell phone, computer software and hardware
+  music:
+    music_tips: Music Preference
+    music_title: National style, opera accent, cheerful
+    music_bg: https://p2.music.126.net/Mrg1i7DwcwjWBvQPIMt_Mg==/79164837213438.jpg
+    music_link: /music  
+  extra: false
