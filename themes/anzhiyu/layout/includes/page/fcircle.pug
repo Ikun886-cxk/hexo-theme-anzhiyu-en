@@ -1,0 +1,25 @@
+if theme.friends_vue.enable
+  .fcircle_page
+    .author-content.author-content-item.fcirclePage.single(style = theme.essay.enable ? `background: url(${theme.friends_vue.top_background}) left 28% / cover no-repeat !important;` : "")
+      .card-content
+        .author-content-item-tips Friend Links
+        span.author-content-item-title Latest Articles Subscription
+        .content-bottom
+          .tips Use You Link Friend Circle to subscribe to the latest You Link articles
+        .banner-button-group
+          a.banner-button(onclick='pjax.loadUrl("/about")')
+            i.anzhiyufont.anzhiyu-icon-arrow-circle-right(style='font-size: 1.5rem')
+            span.banner-button-text About me
+    .title-h2-a
+      .title-h2-a-left
+        h2(style='padding-top:0;margin:.6rem 0 .6rem') 🎣 Fishing
+        a.random-post-start(href='javascript:fetchRandomPost();')
+          i.anzhiyufont.anzhiyu-icon-arrow-rotate-right
+      .title-h2-a-right
+        a.random-post-all(href='/link/') All Friend Links
+    #random-post
+    #hexo-circle-of-friends-root
+
+  if (theme.friends_vue.apiurl)
+    include ../anzhiyu/random-friends-post-js.pug
+  script(defer data-pjax src=url_for(theme.friends_vue.vue_js))

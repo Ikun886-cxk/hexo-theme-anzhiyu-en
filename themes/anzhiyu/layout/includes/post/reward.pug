@@ -1,0 +1,17 @@
+.post-reward(onclick='anzhiyu.addRewardMask()')
+  .reward-button.button--animated(title='赞赏作者')
+    i.anzhiyufont.anzhiyu-icon-hand-heart-fill
+    | Reward Author
+  .reward-main
+    .reward-all
+      span.reward-title Thank you for giving me the strength to move forward
+      ul.reward-group
+        each item in theme.reward.QR_code
+          - var clickTo = item.link ? item.link : item.img
+          li.reward-item
+            a(href=url_for(clickTo) target='_blank')
+              img.post-qr-code-img(src=url_for(item.img) alt=item.text)
+            .post-qr-code-desc=item.text
+      a.reward-main-btn(href='/about/' target='_blank')
+        .reward-text List of Appreciators
+        .reward-dec Because your support makes me realize the value of writing articles 🙏

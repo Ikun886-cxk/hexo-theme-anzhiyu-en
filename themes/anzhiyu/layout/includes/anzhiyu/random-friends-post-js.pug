@@ -1,0 +1,216 @@
+script(defer data-pjax=true).
+  var fdata = {
+    apiurl: "#{theme.friends_vue.apiurl}",
+    defaultFish: 100,
+    hungryFish: 100,
+  };
+  //可通过 var fdataUser 替换默认值
+  if (typeof fdataUser !== "undefined") {
+    for (var key in fdataUser) {
+      if (fdataUser[key]) {
+        fdata[key] = fdataUser[key];
+      }
+    }
+  }
+  var randomPostTimes = 0;
+  var randomPostWorking = false;
+  var randomPostTips = [
+    "Caught the absolute best article!" ,
+    "Sneezed at the river and scared away",
+    "You grabbed with your little friend",
+    "You defeated the dragon and found it in the lair",
+    "Found while digging the tomb of Qin Shi Huang",
+    "You bought one while wandering on the roadside",
+    "Brought it from the class teacher at school for the kids to secretly watch in class",
+    "Your deskmate mercilessly tore out the one you liked the most from your language book",
+    "Archaeologists have recently discovered",
+    "Aliens descended to Earth to learn about Earth culture and were stuffed by you when they landed",
+    "From the hidden corner of the top floor of the library was found glittering gold",
+    "The disciple's training went off the rails, and I immediately pulled out",
+    "Singing a mountain song in the mountains, the sister next door came running with",
+    "The child next door got a perfect score in math, all because he watched",
+    "The child next door got a perfect score in English because she watched",
+    "Xiaomi has developed a new generation of MIX phones, which are said to be inspired",
+    "Cultivation of the success of the transition, but fortunately watched in advance",
+    "Cook sat on the throne of Apple CEO, because he watched the interview",
+    "Alibaba shouted sesame open the door, reflected in the eyes of ",
+    "Master said that the practice of martial arts should first refine the heart, and then let me study it well",
+    "The scientific research team found in the Antarctic continent by the ice",
+    "The plane window seems to be glued by a piece of paper, a closer look is",
+    "History is full of the four words of benevolence, justice and morality, but through the word slit is full of ",
+    "The tape recorder from more than ten years ago still seems to be working, and when I plugged it in, I found that it was playing ",
+    "The new language book proposes to add a familiar and recited",
+    "After a survey, 99% of the respondents had not recited it",
+    "The full mark essay in this year's college entrance examination is",
+    "The Longevity Monk uncovered the Buddha's five-finger mountain",
+    "Scientists have discovered that the secret to solving aging is daily study",
+    "Intel has released a new Xeon processor, whose chips are manufactured on all principles",
+    "The new iPhone capacity is sufficient, the new incoming channel is",
+    "This year's mu yield broke through eighty million jins, thanks to",
+    "Lu Yin unified the heavenly clan and pronounced it under the gaze of countless ancestral realm experts",
+    "Black diamond wind with white diamond wind said, eat the meat of the Tang monk can live forever, he knows because look ",
+    "went to the bathroom without paper, directly lifting the pants to run away also unwilling to defile the hands",
+    "Planting an article will produce many, many articles, I planted",
+    "Thirty years of river east, thirty years of river west, Mo deceive I have not seen",
+    "Stepping through the irony of not finding a place to get it all",
+    "Today's double-color ball won 20 million, prediction all rely on ",
+    "The teacher punished me for not writing my name on the paper,
+    "I cut my finger to protest against the injustice in the world and wrote it down",
+    "The same paper was pasted all over the art street, and when I approached it was",
+    "This mere maze can not be difficult for me? In fact, I was able to walk out thanks to",
+    "Today was an article on the top of the microblogging hot search, it is",
+    "You give beggars a secret to get rich, it is",
+    "UZI a walk A to take five kills, in the interview afterwards said he was recalling ",
+    "Scientists deconstructed the first person infected with the zombie virus and found that zombie antibodies exist in",
+    "If you have a dream, try to see it",
+    "What determines what kind of person we become is not our ability, but whether we have seen it or not",
+    "If you have faith, you don't have to succeed, if you don't have faith, you have to see it",
+    "It doesn't matter who you really are, what matters is whether you've seen it or not",
+    "Xuantian realm is important to forge the body, I give you this book, go cultivate well, this is",
+    "Hundreds of ancestral realm experts in the sky in the lake battle for three days and three nights in order to grab",
+    "This immortal pond water is the ancient true immortal to the descendants of the test, require familiarity and recite",
+    "Qing's 3,000-year foundation was almost destroyed by your kid, I was able to save it all because I read it",
+    "I am the Pokémon Master! This Pikachu of mine is",
+    "I'm a Pokémon master! This little fire dragon is",
+    "I'm a Pokémon master! I'm the master of Pokémon!
+    "I am the master of Pokémon! I'm the master of Pokémon! I'm the master of Genie's Turtle",
+    "It is written in the ancient relics that if you learn this book, you will be successful, You fix your eyes on it, and it turns out to be",
+    "Grandma, play dirty, right? I am the double agent code name Pangolin,",
+    "Your background is too fake, mine is much more realistic, learned this technique all because of reading",
+    "I am Yunnan, Yunnan Nujiang, Nujiang Lushui City, Lushui City, Liuku, Liuku Lisu, Lisu is",
+    "I really bolted Q, I really will thank if you look",
+    "You have learned to retreat retreat retreat divine power, the next mind has been recorded in ",
+    "Life is impermanent large intestine wrapped in small intestine, small intestine wrapped in small intestine",
+    "You have drawn the common article, which is",
+    "You have received a rare article and it is",
+    "You drew the golden common article, it is",
+    "You drew a golden rare article and it is",
+    "You drew a legendary article! It is",
+    "Wow! Golden Legend! You drew the Golden Legend article and it is",
+    "Report! The scout said there was a man sneaking a book at 300 meters to the top, and it was written ",
+    "Zhi Lian girl has a big show, whoever can finish reading this book can marry her, Then from the back pulled out ",
+    "May I ask what your dream is? My dream is to be able to read",
+    "What can I read to increase my wisdom? Of course it is to read",
+    "Nalan Yanran took out the book of withdrawal, but found that she had brought the wrong one out of the house and ended up taking out a copy",
+    "You have to do your best to protect your dreams, Those who mock you, they are bound to fail, they want to turn you into the same as them, If you have a dream, try to read it",
+    "Taking the road of life is like climbing a mountain, it looks like a lot of wrong paths and rugged roads, but in the end you need to read it all",
+    "The rules of the game are so simple, do you understand? Whether you understand or not, go and read it",
+  ];
+  var randomPostClick = 0;
+  function fetchRandomPost() {
+    if (!document.getElementById("random-post")) return;
+    if (randomPostWorking == false) {
+      randomPostWorking = true;
+      //获取旋转角度
+      let randomRotate = randomPostTimes * 360;
+      let randomPostTipsItem = randomPostTips[Math.floor(Math.random() * randomPostTips.length)];
+      let randomPostLevel = "";
+      if (randomPostTimes > 10000) {
+        randomPostLevel = "Those who wish to take the bait";
+      } else if (randomPostTimes > 1000) {
+        randomPostLevel = "Overlooking the world";
+      } else if (randomPostTimes > 1000) {
+        randomPostLevel = "Beyond God";
+      } else if (randomPostTimes > 100) {
+        randomPostLevel = "The Ultimate Fisherman";
+      } else if (randomPostTimes > 75) {
+        randomPostLevel = "King of Fishing";
+      } else if (randomPostTimes > 50) {
+        randomPostLevel = "Fishing Master";
+      } else if (randomPostTimes > 20) {
+        randomPostLevel = "Fishing Expert";
+      } else if (randomPostTimes > 5) {
+        randomPostLevel = "Fishing Master";
+      } else {
+        randomPostLevel = "Fishing for Beginners";
+      }
+      if (randomPostTimes >= 5) {
+        document.getElementById("random-post").innerHTML =
+          `Fishing in progress... （Lv.` + randomPostTimes + ` Current Title：` + randomPostLevel + `）`;
+      } else {
+        document.getElementById("random-post").innerHTML = `Fishing in progress...`;
+      }
+
+      let randomTime = randomNum(1000, 3000);
+
+      if (randomPostTimes == 0) {
+        randomTime = 0;
+      }
+
+      document.querySelector(".random-post-start").style.opacity = "0.2";
+      document.querySelector(".random-post-start").style.transitionDuration = "0.3s";
+      document.querySelector(".random-post-start").style.transform = "rotate(" + randomRotate + "deg)";
+
+      //判断是否饥饿
+      if (
+        document.getElementById("random-post") &&
+        randomPostClick * fdata.hungryFish + fdata.defaultFish < randomPostTimes &&
+        Math.round(Math.random()) == 0
+      ) {
+        document.getElementById("random-post").innerHTML =
+          "Because only fishing not eat fish, excessive hunger led to the failure of this fishing ... (Click on any of the articles obtained by fishing to recover)";
+        randomPostWorking = false;
+      } else {
+        var fetchUrl = fdata.apiurl + "randompost";
+        fetch(fetchUrl)
+          .then(res => res.json())
+          .then(json => {
+            var title = json.title;
+            var link = json.link;
+            var author = json.author;
+            if (document.getElementById("random-post")) {
+              window.setTimeout(function () {
+                document.getElementById("random-post").innerHTML =
+                  randomPostTipsItem +
+                  `From Friend Links <b>` +
+                  author +
+                  `</b> ：<a class="random-friends-post" onclick="randomClickLink()" target="_blank" href="` +
+                  link +
+                  `" rel="external nofollow">` +
+                  title +
+                  `</a>`;
+                randomPostTimes += 1;
+                localStorage.setItem("randomPostTimes", randomPostTimes);
+                document.querySelector(".random-post-start").style.opacity = "1";
+              }, randomTime);
+            }
+          });
+        randomPostWorking = false;
+      }
+    }
+  }
+
+  //初始化检查
+  function initRandomPost() {
+    // 获取已经存储的数据
+    if (localStorage.randomPostTimes) {
+      randomPostTimes = parseInt(localStorage.randomPostTimes);
+      randomPostClick = parseInt(localStorage.randomPostClick);
+      document.querySelector(".random-post-start").style.transitionDuration = "0.3s";
+      document.querySelector(".random-post-start").style.transform = "rotate(" + 360 * randomPostTimes + "deg)";
+    }
+    fetchRandomPost();
+  }
+
+  initRandomPost();
+
+  //添加点击统计
+  function randomClickLink() {
+    randomPostClick += 1;
+    localStorage.setItem("randomPostClick", randomPostClick);
+  }
+
+  // 生成随机数
+  function randomNum(minNum, maxNum) {
+    switch (arguments.length) {
+      case 1:
+        return parseInt(Math.random() * minNum + 1, 10);
+        break;
+      case 2:
+        return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+        break;
+      default:
+        return 0;
+        break;
+    }
+  }

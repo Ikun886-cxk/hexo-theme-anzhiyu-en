@@ -1,0 +1,30 @@
+script.
+  (() => {
+    function loadWaline () {
+      function initWaline () {
+        let initData = {
+          el: null,
+          serverURL: '!{theme.waline.serverURL}',
+          comment: true,
+          lang: 'en',
+          emoji: [
+      'https://unpkg.com/@waline/emojis@1.1.0/alus',
+      'https://unpkg.com/@waline/emojis@1.1.0/bilibili',
+      'https://unpkg.com/@waline/emojis@1.1.0/bmoji',
+      'https://unpkg.com/@waline/emojis@1.1.0/qq',
+      'https://unpkg.com/@waline/emojis@1.1.0/tieba',
+      'https://unpkg.com/@waline/emojis@1.1.0/tw-emoji',
+      'https://unpkg.com/@waline/emojis@1.1.0/weibo',
+      'https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/',
+    ],
+         reaction: true,
+        }
+        const waline = Waline.init(initData)
+      }
+
+      if (typeof Waline === 'object') initWaline() 
+      else getScript('!{url_for(theme.asset.waline_js)}').then(initWaline)
+    }
+
+    window.pjax ? loadWaline() : window.addEventListener('load', loadWaline)
+  })()

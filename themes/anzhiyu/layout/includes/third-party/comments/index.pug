@@ -1,0 +1,34 @@
+- let defaultComment = theme.comments.use[0]
+hr
+#post-comment
+  .comment-head
+    .comment-headline
+      i.anzhiyufont.anzhiyu-icon-comments
+      span= ' ' + _p('comment')
+    .comment-randomInfo(style= theme.visitorMail.enable ? "" : "display: none")
+      a(onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)") Anonymous comments
+    
+    if theme.comments.use.length > 1
+      #comment-switch
+        span.first-comment=defaultComment
+        span.switch-btn
+        span.second-comment=theme.comments.use[1]
+    
+    .comment-tips#comment-tips
+      span You don't need to delete empty lines and comment directly to get the best display
+
+
+  .comment-wrap
+    each name in theme.comments.use
+      div
+        case name
+          when 'Valine'
+            #vcomment.vcomment
+          when 'Twikoo'
+            #twikoo-wrap
+          when 'Waline'
+            #waline-wrap
+          when 'Artalk'
+            #artalk-wrap
+
+  .comment-barrage

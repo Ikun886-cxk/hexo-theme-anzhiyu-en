@@ -1,0 +1,8 @@
+#categoryBar
+  #category-bar.category-bar
+      #catalog-bar
+        #catalog-list
+          .catalog-list-item(id='Home')
+            a(href="/") Home
+          !=catalog_list("categories")
+        a.catalog-more(href="/categories/")!= 'more'
