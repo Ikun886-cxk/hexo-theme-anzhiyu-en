@@ -427,7 +427,7 @@ footer:
   # https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr
   bdageitem:
     - link: https://hexo.io/ #徽标指向网站链接
-      shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
+      shields: https://img.shields.io/badge/Hexo-0E83CD?style=for-the-badge&logo=hexo&logoColor=white #徽标API
       message: Blog framework for Hexo #徽标提示语
     - link: https://github.com/
       shields: https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white
