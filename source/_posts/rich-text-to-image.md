@@ -1,6 +1,6 @@
 ---
 title: Rich-Text-to-Image Generation
-top_img: https://i.im.ge/2023/04/27/LZtQ6Y.0-Expressive-Text-to-Image-Generation-Rich-Text-GP-esrgan-v1-x2plus-1.png
+top_img: https://i.postimg.cc/mrZpQCbw/image.png
 ---
 
 ## Introduction
